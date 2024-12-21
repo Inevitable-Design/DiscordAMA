@@ -13,4 +13,8 @@ export const config = {
   ama: {
     durationMinutes: parseInt(process.env.AMA_DURATION_MINUTES!) || 60,
   },
+  solana: {
+    privateKey: process.env.SOLANA_PRIVATE_KEY!, // This will be base58 encoded
+    rpcUrl: process.env.SOLANA_RPC_URL || 'https://api.mainnet-beta.solana.com',
+  },
 };
