@@ -1,10 +1,11 @@
 // src/services/imageGeneration.ts
 import axios from 'axios';
+import {config} from '../config'
 
 export async function generateImage(prompt: string): Promise<string> {
   try {
     const response = await axios.post(
-      'https://poyboi--flux-try-pybi-inference.modal.run',
+      config.imgGenUrl,
       {
         prompt,
         twice: false,
