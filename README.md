@@ -1,4 +1,4 @@
-# Discord AI Image Generation & NFT Minting Bot
+# eMosaic
 
 A Discord that creates an interactive environment where users can participate in time-limited image generation AMA sessions. During these sessions, users can create AI-generated images using text prompts, vote on their favorites, and ultimately have the collection minted as an NFT on the Solana blockchain as a singular collage/mosaic.
 
