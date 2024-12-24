@@ -1,8 +1,9 @@
-import { Connection, Keypair } from '@solana/web3.js';
+import { Connection, Keypair, clusterApiUrl } from '@solana/web3.js';
 import { Metaplex, bundlrStorage, toMetaplexFile, keypairIdentity } from '@metaplex-foundation/js';
 import  bs58  from 'bs58';
 import { createCollage } from './collageCreator';
 import { config } from '../config';
+
 
 // src/services/nftMinting.ts
 export async function createAndMintCollage(
@@ -24,8 +25,8 @@ export async function createAndMintCollage(
     const collageBuffer = await createCollage(imageUrls, collageOptions);
 
     // Connect to Solana
-    const connection = new Connection(config.solana.rpcUrl);
-    
+    const connection = new Connection(clusterApiUrl("mainnet-beta"));
+
     // Create wallet from private key
     const privateKeyBytes = bs58.decode(config.solana.privateKey);
     const wallet = Keypair.fromSecretKey(privateKeyBytes);
@@ -71,7 +72,9 @@ export async function createAndMintCollage(
     };
 
     // Upload metadata
+    console.log('Uploading metadata:', metadata);
     const metadataUri = await metaplex.storage().uploadJson(metadata);
+    console.log('Metadata uploaded:', metadataUri);
 
     // Create NFT
     const { nft } = await metaplex.nfts().create({

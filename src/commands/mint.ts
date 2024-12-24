@@ -28,7 +28,7 @@ export const mintCommand = {
     try {
       // Get the session end time (now) and calculate start time
       const sessionEndTime = new Date();
-      const sessionStartTime = new Date(sessionEndTime.getTime() - (60 * 100 * 24 * 5 * 60 * 1000));
+      const sessionStartTime = new Date(sessionEndTime.getTime() - (2 * 60 * 60 * 1000));
 
       // Get all images from the session period
       const sessionImages = await Image.find({
