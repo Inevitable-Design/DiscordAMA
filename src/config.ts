@@ -15,7 +15,7 @@ export const config = {
   },
   solana: {
     privateKey: process.env.SOLANA_PRIVATE_KEY!, // This will be base58 encoded
-    rpcUrl: process.env.SOLANA_RPC_URL || 'https://mainnetbeta-rpc.eclipse.xyz',
+    rpcUrl: process.env.SOLANA_RPC_URL || 'https://api.devnet.solana.com',
   },
   imgGenUrl: process.env.IMAGE_GEN_URL,
 };
